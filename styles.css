@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap');
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+:root {
+    --secondary: #781727;
+    --primary: #4e0714;
+    --accent: #9e182b;
+    --light: #f9dac3;
+    --dark: #40343c;
+    --gray: #343a40;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Занимаем всю высоту viewport */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+  
+  /* ===== ШАПКА ===== */
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #f9dac3;
+    padding: 1.5rem 0 1.8rem;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    position: relative;
+    top: -5px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--primary);
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+  
+  /* ===== НАВИГАЦИЯ ===== */
+
+/* ===== Стили для кнопок с красной подсветкой ===== */
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  overflow: hidden;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: 2px solid transparent;
+  top: 10px;
+}
+
+/* Эффект при наведении */
+nav a:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #980303, 0 0 30px rgba(255, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+nav a:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Эффект "пульсации" после наведения */
+nav a:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(255, 0, 0, 0.4);
+}
+
+/* Анимация градиента */
+@keyframes gradientPulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+nav a:hover::before {
+  background: linear-gradient(45deg, #ff0000, #ff6b6b, #ff0000);
+  background-size: 200% 200%;
+  animation: gradientPulse 2s ease infinite;
+}
+
+  /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+  section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* ===== ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ ЗАГОЛОВКОВ H2 ===== */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #781727; /* Бордовый из вашей палитры */
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid #9e182b; /* Акцентная линия */
+    display: inline-block; /* Чтобы линия была только под текстом */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  /* Адаптация для мобильных */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.8rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+  }
+
+  /* ===== СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ ===== */
+  .main-intro {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  /* ===== СТИЛИ ДЛЯ БИОГРАФИИ ===== */
+  .bio-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--accent);
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+  
+  .timeline-date {
+    font-weight: bold;
+    color: var(--secondary);
+  }
+  
+  .timeline-title {
+    font-weight: 600;
+    margin: 0.5rem 0;
+  }
+  
+  /* ===== СТИЛИ ДЛЯ ГАЛЕРЕИ ===== */
+ 
+  /* ===== ГАЛЕРЕЯ С ПОДСВЕТКОЙ ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 20px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform-style: preserve-3d;
+  aspect-ratio: 4/3;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  filter: brightness(0.95);
+}
+
+/* Бордовая подсветка при наведении */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(120, 23, 39, 0.3) 0%, 
+    rgba(158, 24, 43, 0.6) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 15px 35px rgba(78, 7, 20, 0.4);
+}
+
+.gallery-item:hover .gallery-img {
+  filter: brightness(1.05);
+  transform: scale(1.03);
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* Стили для подписей */
+.gallery-caption {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(78, 7, 20, 0.9), transparent);
+  color: white;
+  padding: 1.5rem;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.gallery-item:hover .gallery-caption {
+  bottom: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .gallery-item {
+    aspect-ratio: 3/2;
+  }
+}
+  
+  /* ===== СТИЛИ ДЛЯ КОНТАКТОВ ===== */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-info, .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-icon {
+    margin-right: 1rem;
+    color: var(--accent);
+  }
+  
+  .contact-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .contact-link:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form-textarea {
+    min-height: 120px;
+  }
+  
+  .submit-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: var(--secondary);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s;
+  }
+  
+  .social-link:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+  }
+  
+  /* ===== ПОДВАЛ ===== */
+
+  footer {
+    background: linear-gradient(to right, #4e0714, #781727, #4e0714);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto; /* Автоматический отступ сверху */
+    position: relative;
+    z-index: 10;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Дополнительные эффекты для футера */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #9e182b, transparent);
+  }
+
+  
+  /* ===== АДАПТИВНОСТЬ ===== */
+  @media (max-width: 768px) {
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav a {
+      margin: 0.5rem 0;
+    }
+  
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Добавьте этот CSS в styles.css */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  background: #f9dac344;
+  width: fit-content;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-link:hover {
+  background: #781727;
+  color: #f9dac3;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(120, 23, 39, 0.3);
+}
+
+.contact-icon {
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover .contact-icon {
+  transform: scale(1.2);
+  color: #ffccd5;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .contact-link {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+}
